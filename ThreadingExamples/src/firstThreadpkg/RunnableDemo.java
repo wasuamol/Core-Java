@@ -1,21 +1,25 @@
 package firstThreadpkg;
 
-public class ThreadClassDemo {
+public class RunnableDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TClass t = new TClass();
+		
+		Thread t = new Thread(new RunnableThread());
 		t.start();
+
 	}
 
 }
 
-class TClass extends Thread {
-	
+class RunnableThread implements Runnable{
+
+	@Override
 	public void run() {
 		for (int i = 0; i < 5; i++) {
 			System.out.println("hello by thread class : "+i);
 		}
+		
 	}
 	
 }
