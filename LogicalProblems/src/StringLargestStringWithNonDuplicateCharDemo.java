@@ -5,13 +5,22 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
+/* Given array consist of N string calculate the lenght of the longest string S such that
+ * S is concatination of some of the string from A
+ * Every letter in S is different
+ *  Ex A = ["co","dil","ity"] function should return 5, resulting string S could be codil, dilco, coity, ityco
+ *  A = ["abc","ade","akl"] function shuld retun 0, impossible to concatenate as letters wont be unique
+ *  
+ */ 
 public class StringLargestStringWithNonDuplicateCharDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//String[] A = {"co","dil","ity"};
-		String[] A = {};
+		//String[] A = {"co","dil","ity"}; //should return 5
+		//String[] A = {"abc","kkk","def","csv"}; //should return 6
+		String[] A = {"abc","ade","akl"}; // should return 0
+		//String[] A = {};
 		
 		StringLargestStringWithNonDuplicateCharDemo o = new StringLargestStringWithNonDuplicateCharDemo();
 		System.out.println(o.solution(A));
@@ -31,7 +40,7 @@ public class StringLargestStringWithNonDuplicateCharDemo {
 			StringBuffer sb = new StringBuffer(A[i]);
 			for (int j = 0; j < A.length; j++) {
 				if(i!=j){
-					String s = new String(sb.append(A[j]));
+					String s = sb.append(A[j]).toString();
 					allPossibleCombinationList.add(s);
 				}
 					
